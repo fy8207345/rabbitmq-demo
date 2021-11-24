@@ -8,3 +8,6 @@ spring:
     listener:
       simple:
         acknowledge-mode: manual #取消自动Ack
+      type: simple #使用spring分发消息
+    publisher-confirm-type: simple #开启confirm机制：消息有没有到达exchange回调
+    publisher-returns: true #开启return机制：消息有没有到达队列的回调

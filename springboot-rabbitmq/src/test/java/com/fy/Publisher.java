@@ -5,6 +5,8 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.IOException;
+
 @SpringBootTest
 public class Publisher {
 
@@ -12,7 +14,7 @@ public class Publisher {
     private RabbitTemplate rabbitTemplate;
 
     @Test
-    void contextLoads(){
-        rabbitTemplate.convertAndSend("boot-topic-exchange", "fast.red.rabbit", "fast.red.rabbit");
+    void contextLoads() throws IOException {
+        rabbitTemplate.convertAndSend("boot-topic-exchange", "fast.black.rabbit", "fast.black.rabbit");
     }
 }

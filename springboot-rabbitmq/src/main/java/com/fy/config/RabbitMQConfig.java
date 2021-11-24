@@ -24,7 +24,8 @@ public class RabbitMQConfig {
 
     //绑定
     @Bean
-    public Binding binding(){
-        return BindingBuilder.bind(queue()).to(topicExchange()).with("*.red.*");
+    public Binding binding(TopicExchange topicExchange, Queue queue){
+        //需要注意：运行之后修改了routing key，会重新添加一个绑定，之前的绑定依然存在。
+        return BindingBuilder.bind(queue).to(topicExchange).with("*.red.*");
     }
 }

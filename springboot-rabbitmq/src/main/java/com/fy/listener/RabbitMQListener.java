@@ -11,15 +11,9 @@ import java.io.IOException;
 
 @Slf4j
 @Component
-@RabbitListener(queues = "boot-queue")
 public class RabbitMQListener {
 
-    @RabbitHandler
-    public void onMessage(byte[] message){
-        log.info("接收到消息bytes：{}" , new String(message));
-    }
-
-    @RabbitHandler
+    @RabbitListener(queues = "boot-queue")
     public void onMessage(String msg, Channel channel, Message message) throws IOException {
         log.info("接收到消息string：{}" , msg);
         //手动ack
