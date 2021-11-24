@@ -1,2 +1,4 @@
 # Project exclude paths
 /rabbit-helloworld/target/
+**/target/
+.idea/
